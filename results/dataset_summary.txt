@@ -1,0 +1,9 @@
+Dataset Summary
+========================================
+Number of messages: 5572
+Number of ham messages: 4825
+Number of spam messages: 747
+Average message length: 80.49
+Average word count: 15.60
+Average ham length: 71.48
+Average spam length: 138.67

@@ -1,0 +1,46 @@
+Top words for model: LinearSVM
+========================================
+
+Top spam words:
+text: 1.8469
+txt: 1.7209
+arsenal: 1.7168
+number: 1.7132
+august: 1.6552
+reply: 1.4935
+mobile: 1.4651
+content: 1.4489
+brought: 1.4388
+sexy: 1.3849
+ringtone: 1.3725
+welcome: 1.3692
+information: 1.3568
+divorce: 1.3382
+truly: 1.3327
+service: 1.3249
+won: 1.2803
+real: 1.2658
+claim: 1.2593
+renewal: 1.2414
+
+Top ham words:
+ltgt: -1.0870
+home: -0.8799
+ill: -0.8677
+hey: -0.8432
+ok: -0.7653
+text youre: -0.7203
+later: -0.6881
+number ltgt: -0.6874
+mail: -0.6828
+tuesday: -0.6760
+tour: -0.6569
+times: -0.6004
+got: -0.5779
+way: -0.5755
+hope: -0.5609
+work: -0.5553
+ard number: -0.5511
+face: -0.5448
+said: -0.5278
+ard: -0.5246

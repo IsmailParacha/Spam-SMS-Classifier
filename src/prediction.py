@@ -7,15 +7,29 @@ from src.preprocessing import clean_text
 
 def save_model(model: Pipeline) -> None:
     """
-    Save trained best model.
+    Save the trained best model to models folder.
+    """
+    joblib.dump(model, BEST_MODEL_PATH)
+
+
+def load_model() -> Pipeline:
+    """
+    Load the saved model from models folder.
     """
 
-    joblib.dump(model, BEST_MODEL_PATH)
+    if not BEST_MODEL_PATH.exists():
+        raise FileNotFoundError(
+            f"Model not found at {BEST_MODEL_PATH}. "
+            "Please run python run_project.py first to train and save the model."
+        )
+
+    model = joblib.load(BEST_MODEL_PATH)
+    return model
 
 
 def predict_message(model: Pipeline, message: str) -> str:
     """
-    Predict one SMS message.
+    Predict one SMS message as spam or ham.
     """
 
     cleaned_message = clean_text(message)
@@ -29,7 +43,7 @@ def predict_message(model: Pipeline, message: str) -> str:
 
 def predict_custom_message(model: Pipeline) -> None:
     """
-    Take SMS from user input and predict spam or ham.
+    Take SMS from terminal input and predict spam or ham.
     """
 
     print("\nTry your own SMS message.")
@@ -40,15 +54,4 @@ def predict_custom_message(model: Pipeline) -> None:
         return
 
     prediction = predict_message(model, message)
-
     print(f"Prediction: {prediction}")
-
-    classifier = model.named_steps["model"]
-
-    if hasattr(classifier, "predict_proba"):
-        cleaned_message = clean_text(message)
-        probabilities = model.predict_proba([cleaned_message])[0]
-        predicted_index = model.predict([cleaned_message])[0]
-        confidence = probabilities[predicted_index] * 100
-
-        print(f"Confidence: {confidence:.2f}%")
